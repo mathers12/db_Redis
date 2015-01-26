@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var _redis = require("redis");
-var redis = _redis.createClient();
+var redis = _redis.createClient(6379, '127.0.0.1', {})
 
 
 var user =
@@ -14,7 +14,7 @@ var user =
 
 
 
-//redis.hmset("user", user); // Nastavime objekt
+redis.hmset("user", user); // Nastavime objekt
 /* GET home page. */
 router.get('/', function(req, res, next) { // Citame z databazy
 
